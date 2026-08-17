@@ -1,0 +1,1085 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Long Strongs — A Proven Plan for Living Long and Strong</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-hero:   #1B3D2B;
+      --green-dark:   #0f2318;
+      --green-mid:    #2A6041;
+      --green-light:  #3a7a55;
+      --green-pale:   #EAF2EC;
+      --amber:        #C8952A;
+      --amber-light:  #F5C842;
+      --marker-yellow: #FFE033;
+      --white:        #FFFFFF;
+      --gray-light:   #F4F6F4;
+      --gray-mid:     #E8EDE9;
+      --text-dark:    #1A2E23;
+      --text-body:    #3d4f45;
+      --text-muted:   #6b8074;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Barlow', sans-serif;
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: sticky; top: 0; z-index: 200;
+      background: var(--white); border-bottom: 1px solid #d8e4da;
+      padding: 0 2rem; display: flex; align-items: center;
+      justify-content: space-between; height: 68px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .nav-left { display: flex; align-items: center; }
+    .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
+    .nav-logo-badge {
+      width: 38px; height: 38px; background: var(--green-mid); border-radius: 4px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.1rem;
+      font-weight: 800; color: var(--white); letter-spacing: -0.02em;
+    }
+    .nav-logo-text {
+      font-family: 'Barlow Condensed', sans-serif; font-size: 1.3rem;
+      font-weight: 700; color: var(--green-dark); letter-spacing: 0.02em;
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 0.15rem;
+      list-style: none; margin-left: 1.75rem;
+    }
+    .nav-links a {
+      color: var(--text-body); text-decoration: none; font-size: 0.9rem;
+      font-weight: 600; padding: 0.4rem 0.85rem; border-radius: 4px;
+      transition: background 0.15s, color 0.15s;
+    }
+    .nav-links a:hover { background: var(--gray-light); color: var(--green-mid); }
+    .nav-cta {
+      background: var(--green-mid); color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif; font-size: 0.88rem;
+      font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase;
+      text-decoration: none; padding: 0.55rem 1.25rem; border-radius: 4px;
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--green-dark); }
+
+    /* ─── HERO ─── */
+    #hero {
+      background: var(--green-hero);
+      padding: 5rem 2rem 0;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 1rem;
+    }
+    .hero-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: 0.01em;
+      margin-bottom: 1.25rem;
+    }
+    .hero-sub {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: #b8cfbe;
+      max-width: 580px;
+      margin: 0 auto 3rem;
+      line-height: 1.6;
+    }
+
+    /* Tile grid */
+    .hero-tiles {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-bottom: 3.5rem;
+    }
+    .hero-tile {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.5rem 1rem;
+      text-decoration: none;
+      text-align: center;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    }
+    .hero-tile:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.2); }
+    .hero-tile-icon { font-size: 2rem; margin-bottom: 0.6rem; display: block; }
+    .hero-tile-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    /* ─── STATS BAND ─── */
+    #stats {
+      background: var(--white);
+      padding: 4rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid var(--gray-mid);
+    }
+    .stats-inner { max-width: 700px; margin: 0 auto; }
+    .stat-line {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+    .stat-line:last-child { margin-bottom: 0; }
+    /* Marker highlight */
+    .mark {
+      position: relative;
+      display: inline;
+    }
+    .mark::before {
+      content: '';
+      position: absolute;
+      bottom: 1px;
+      left: -3px;
+      right: -3px;
+      height: 10px;
+      background: var(--marker-yellow);
+      z-index: -1;
+      border-radius: 2px;
+      transform: rotate(-0.5deg) skewX(-2deg);
+    }
+
+    /* ─── STEPS SECTION (home page split layout) ─── */
+    #steps { background: var(--green-hero); padding: 0; overflow: hidden; }
+    .steps-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 620px;
+    }
+    .steps-split-left {
+      padding: 5rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .steps-kicker {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 1rem;
+    }
+    .steps-big-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.5rem, 4.5vw, 4rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: 1.25rem;
+    }
+    .steps-intro-text { color: #9ab8a4; font-size: 1rem; line-height: 1.65; margin-bottom: 2rem; }
+    .btn-steps {
+      display: inline-block;
+      align-self: flex-start;
+      background: var(--amber);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+    .btn-steps:hover { background: #e0a830; }
+
+    .steps-split-right {
+      background: var(--white);
+      padding: 2.5rem;
+    }
+
+    /* Phase pills in quick list */
+    .phase-pill {
+      display: block;
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.75rem;
+      border-radius: 100px;
+      margin: 0.85rem 0 0.35rem;
+      width: fit-content;
+    }
+    .phase-pill:first-child { margin-top: 0; }
+    .phase-pill.mindset  { background: #e8f4ec; color: var(--green-mid); }
+    .phase-pill.establish{ background: #e4f0f5; color: #2a7a8f; }
+    .phase-pill.progress { background: #fef3e0; color: #a06015; }
+    .phase-pill.optimal  { background: #fdf8e8; color: #8a6a05; }
+
+    /* Quick step rows */
+    .sqr {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.45rem 0.4rem;
+      border-bottom: 1px solid #eef2ef;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background 0.12s;
+    }
+    .sqr:hover { background: var(--gray-light); }
+    .sqr:last-of-type { border-bottom: none; }
+    .sqr-badge {
+      flex-shrink: 0;
+      width: 34px;
+      height: 37px;
+      clip-path: polygon(50% 0%, 100% 30%, 100% 100%, 0% 100%, 0% 30%);
+      background: var(--green-mid);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .sqr-badge.teal  { background: #2a7a8f; }
+    .sqr-badge.amber { background: var(--amber); }
+    .sqr-badge.gold  { background: #8a6a05; }
+    .sqr-badge span {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: var(--white);
+      padding-top: 4px;
+    }
+    .sqr-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.2;
+    }
+
+    /* shared section helpers */
+    .section-center { text-align: center; max-width: 680px; margin: 0 auto 3rem; }
+    .section-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin-bottom: 0.75rem;
+    }
+    .section-sub { font-size: 1.05rem; color: var(--text-body); line-height: 1.65; }
+    .section-sub a { color: var(--green-mid); font-weight: 600; }
+
+    /* ─── WHICH STEP CTA ─── */
+    #which-step {
+      background: var(--white);
+      padding: 5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    #which-step::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232a6041' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .which-step-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .which-step-sub {
+      font-size: 1.05rem;
+      color: var(--text-body);
+      margin-bottom: 2rem;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      position: relative;
+    }
+
+    /* Quiz */
+    .quiz-box {
+      background: var(--gray-light);
+      border: 2px solid var(--gray-mid);
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 2rem;
+      position: relative;
+      text-align: left;
+    }
+    .quiz-q {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+    .quiz-options {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+    .quiz-option {
+      background: var(--white);
+      border: 2px solid var(--gray-mid);
+      border-radius: 6px;
+      padding: 0.75rem 1rem;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-dark);
+      cursor: pointer;
+      transition: border-color 0.15s, background 0.15s;
+      text-align: left;
+    }
+    .quiz-option:hover { border-color: var(--green-mid); background: var(--green-pale); color: var(--green-dark); }
+    .quiz-option.selected { border-color: var(--green-mid); background: var(--green-mid); color: var(--white); }
+    .quiz-result {
+      display: none;
+      margin-top: 1.5rem;
+      background: var(--green-hero);
+      border-radius: 8px;
+      padding: 1.5rem;
+      color: var(--white);
+    }
+    .quiz-result.visible { display: block; }
+    .quiz-result-step {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--amber-light);
+      margin-bottom: 0.25rem;
+    }
+    .quiz-result-text { font-size: 0.95rem; color: #b8cfbe; line-height: 1.6; }
+    .quiz-result-cta {
+      display: inline-block;
+      margin-top: 1rem;
+      background: var(--green-mid);
+      color: var(--white);
+      padding: 0.6rem 1.4rem;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .quiz-result-cta:hover { background: var(--green-light); }
+
+    /* ─── IDENTITY LADDER ─── */
+    #ladder {
+      background: var(--green-hero);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .ladder-label {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 0.75rem;
+    }
+    .ladder-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.75rem;
+    }
+    .ladder-sub {
+      color: #9ab8a4;
+      max-width: 520px;
+      margin: 0 auto 3rem;
+      font-size: 1rem;
+    }
+    /* ─── JOURNEY MAP ─── */
+    .journey {
+      max-width: 860px; margin: 3.5rem auto 0;
+      padding: 0 2rem; position: relative;
+    }
+    .journey-track {
+      position: absolute;
+      top: 27px; left: calc(2rem + 100px); right: calc(2rem + 100px);
+      height: 2px; background: rgba(255,255,255,0.12);
+    }
+    .journey-stops {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      position: relative; z-index: 1;
+    }
+    .journey-stop {
+      display: flex; flex-direction: column; align-items: center;
+      text-align: center; cursor: pointer;
+    }
+    .journey-dot {
+      width: 54px; height: 54px; border-radius: 50%;
+      background: rgba(255,255,255,0.08); border: 2px solid rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem; font-weight: 800; color: rgba(255,255,255,0.55);
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+    .journey-stop:hover .journey-dot {
+      width: 66px; height: 66px;
+      margin-top: -6px; margin-bottom: calc(1.5rem - 6px);
+      background: linear-gradient(135deg, #C8952A, #F5C842);
+      border-color: #ffe066; color: var(--white);
+      box-shadow: 0 0 0 6px rgba(245,200,66,0.18), 0 0 28px rgba(245,200,66,0.4);
+      font-size: 1.4rem;
+    }
+    .journey-tag {
+      font-size: 0.65rem; font-weight: 800; letter-spacing: 0.15em;
+      text-transform: uppercase; color: rgba(255,255,255,0.35);
+      margin-bottom: 0.4rem; transition: color 0.3s;
+    }
+    .journey-stop:hover .journey-tag { color: #F5C842; }
+    .journey-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.4rem; font-weight: 800; color: rgba(255,255,255,0.55);
+      margin-bottom: 0.4rem; transition: all 0.3s;
+    }
+    .journey-stop:hover .journey-name { color: var(--white); font-size: 1.55rem; }
+    .journey-desc {
+      font-size: 0.83rem; color: rgba(255,255,255,0.3);
+      line-height: 1.55; max-width: 180px; margin-bottom: 0.75rem;
+      transition: color 0.3s;
+    }
+    .journey-stop:hover .journey-desc { color: #9ab8a4; }
+    .journey-id {
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.12em;
+      text-transform: uppercase; color: rgba(255,255,255,0.2);
+      transition: color 0.3s;
+    }
+    .journey-stop:hover .journey-id { color: #F5C842; }
+
+    /* ─── WHO THIS IS FOR ─── */
+    #foryou {
+      background: var(--white);
+      padding: 5rem 2rem;
+    }
+    .foryou-inner { max-width: 880px; margin: 0 auto; }
+    .foryou-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .foryou-text .section-title { text-align: left; }
+    .foryou-text .section-sub { text-align: left; }
+    .foryou-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-top: 1.5rem;
+    }
+    .foryou-chip {
+      background: var(--green-pale);
+      color: var(--green-dark);
+      border: 1px solid #c0dac8;
+      border-radius: 100px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+    }
+    .foryou-quote-col {
+      background: var(--green-hero);
+      border-radius: 10px;
+      padding: 2.5rem 2rem;
+    }
+    .foryou-quote-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 1rem;
+    }
+    .foryou-quote-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.4;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+    .foryou-quote-cite {
+      font-size: 0.85rem;
+      color: var(--amber-light);
+      font-weight: 600;
+    }
+
+    /* ─── PHRASES ─── */
+    #phrases {
+      background: var(--gray-light);
+      padding: 5rem 2rem;
+    }
+    .phrases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 960px;
+      margin: 2.5rem auto 0;
+    }
+    .phrase-card {
+      background: var(--white);
+      border-radius: 8px;
+      padding: 1.75rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      border-bottom: 3px solid var(--green-mid);
+    }
+    .phrase-quote {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.6rem;
+      line-height: 1.25;
+    }
+    .phrase-meaning { font-size: 0.9rem; color: var(--text-body); margin: 0; }
+
+    /* ─── VILLAIN ─── */
+    #villain {
+      background: var(--green-mid);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .villain-inner { max-width: 760px; margin: 0 auto; }
+    .villain-text {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(1.35rem, 3vw, 1.9rem);
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1.45;
+      font-style: italic;
+    }
+    .villain-text strong { color: var(--amber-light); font-style: normal; }
+
+    /* ─── MIRANDA ─── */
+    #miranda {
+      background: var(--white);
+      padding: 5rem 2rem;
+    }
+    .miranda-inner {
+      max-width: 880px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .miranda-card {
+      background: var(--green-hero);
+      border-radius: 10px;
+      padding: 2rem 2rem 1.75rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .miranda-photo-wrap {
+      width: 78%;
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+    }
+    .miranda-photo {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .miranda-photo-placeholder {
+      width: 78%;
+      aspect-ratio: 3/4;
+      border-radius: 12px;
+      background: var(--green-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+    .miranda-byline {
+      width: 100%;
+    }
+    .miranda-name {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.6rem;
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 0.2rem;
+    }
+    .miranda-title-tag {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+    }
+    .miranda-text .section-title { text-align: left; }
+    .miranda-text p { color: var(--text-body); margin-bottom: 0.85rem; font-size: 0.98rem; line-height: 1.7; }
+    .miranda-text p:last-child { margin: 0; }
+    .miranda-pull {
+      background: var(--green-pale);
+      border-left: 3px solid var(--green-mid);
+      padding: 1rem 1.25rem;
+      border-radius: 0 6px 6px 0;
+      margin: 1.25rem 0;
+      font-style: italic;
+      color: var(--green-dark);
+      font-size: 0.97rem;
+      font-weight: 500;
+    }
+
+    /* ─── CTA ─── */
+    #cta {
+      background: var(--green-hero);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+    .cta-kicker {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--amber-light);
+      margin-bottom: 0.75rem;
+    }
+    .cta-title {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.0;
+      margin-bottom: 1rem;
+    }
+    .cta-sub {
+      color: #9ab8a4;
+      font-size: 1.05rem;
+      max-width: 460px;
+      margin: 0 auto 2.5rem;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--amber);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.9rem 2.5rem;
+      border-radius: 5px;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-primary:hover { background: #e0a830; transform: translateY(-1px); }
+    .btn-outline {
+      display: inline-block;
+      background: transparent;
+      border: 2px solid rgba(255,255,255,0.3);
+      color: var(--white);
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border-radius: 5px;
+      margin-left: 1rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-outline:hover { border-color: var(--white); background: rgba(255,255,255,0.08); }
+    .cta-signoff {
+      margin-top: 3.5rem;
+      font-size: 0.95rem;
+      color: #6b8074;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--green-dark);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Barlow Condensed', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: 0.05em;
+    }
+    footer nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.82rem;
+      margin: 0 0.75rem;
+      transition: color 0.15s;
+    }
+    footer nav a:hover { color: var(--white); }
+    .footer-disclaimer {
+      font-size: 0.78rem;
+      color: #4a5e52;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero-tiles { grid-template-columns: repeat(2, 1fr); }
+      .ladder-cards { grid-template-columns: 1fr; }
+      .foryou-grid { grid-template-columns: 1fr; }
+      .phrases-grid { grid-template-columns: 1fr 1fr; }
+      .miranda-inner { grid-template-columns: 1fr; }
+      .quiz-options { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .btn-outline { display: none; }
+    }
+    @media (max-width: 480px) {
+      .hero-tiles { grid-template-columns: repeat(2, 1fr); }
+      .phrases-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="long-strongs.html">
+      <div class="nav-logo-badge">LS</div>
+      <span class="nav-logo-text">THE LONG STRONGS</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="baby-steps.html">7 Steps</a></li>
+      <li><a href="miranda-story.html">Miranda's Story</a></li>
+      <li><a href="for-you.html">Who Is This For?</a></li>
+      <li><a href="call-now.html">Call Now</a></li>
+    </ul>
+  </div>
+  <a href="#cta" class="nav-cta">Listen Now</a>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero">
+  <p class="hero-kicker">A podcast by Miranda Essig</p>
+  <h1 class="hero-title">Live Long.<br>Live Strong.</h1>
+  <p class="hero-sub">
+    Real people. Real health problems. One proven 7-step framework — and a host who was you.
+  </p>
+  <div class="hero-tiles">
+    <a class="hero-tile" href="#steps">
+      <span class="hero-tile-icon">🥩</span>
+      <span class="hero-tile-label">Hit Your Protein</span>
+    </a>
+    <a class="hero-tile" href="#steps">
+      <span class="hero-tile-icon">🏃</span>
+      <span class="hero-tile-label">Start Moving</span>
+    </a>
+    <a class="hero-tile" href="#steps">
+      <span class="hero-tile-icon">💪</span>
+      <span class="hero-tile-label">Build Strength</span>
+    </a>
+    <a class="hero-tile" href="#steps">
+      <span class="hero-tile-icon">📊</span>
+      <span class="hero-tile-label">Track Progress</span>
+    </a>
+    <a class="hero-tile" href="#steps">
+      <span class="hero-tile-icon">🏋️</span>
+      <span class="hero-tile-label">Gain Muscle</span>
+    </a>
+    <a class="hero-tile" href="#steps">
+      <span class="hero-tile-icon">🔥</span>
+      <span class="hero-tile-label">Get Metabolically Healthy</span>
+    </a>
+    <a class="hero-tile" href="#steps">
+      <span class="hero-tile-icon">⚡</span>
+      <span class="hero-tile-label">Be Optimal</span>
+    </a>
+    <a class="hero-tile" href="#which-step">
+      <span class="hero-tile-icon">🗺️</span>
+      <span class="hero-tile-label">Find My Step</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══ STATS BAND ═══ -->
+<section id="stats">
+  <div class="stats-inner">
+    <p class="stat-line"><span class="mark">7 steps</span> to a longer, stronger life</p>
+    <p class="stat-line">One framework — <span class="mark">every caller, every time</span></p>
+    <p class="stat-line"><span class="mark">One proven plan</span> for getting out of the Sick Care System</p>
+  </div>
+</section>
+
+<!-- ═══ 7 STEPS ═══ -->
+<section id="steps">
+  <div class="steps-split">
+
+    <div class="steps-split-left">
+      <p class="steps-kicker">The Framework Is the Show</p>
+      <h2 class="steps-big-title">THE 7 LONG STRONG BABY STEPS</h2>
+      <p class="steps-intro-text">Every caller. Every problem. Every time. Whether you're pre-diabetic, struggling with postpartum weight, or watching a parent fade — the answer always runs through these 7 steps. In order. Without skipping.</p>
+      <a href="baby-steps.html" class="btn-steps">Learn All 7 Steps →</a>
+    </div>
+
+    <div class="steps-split-right">
+
+      <span class="phase-pill mindset">Mindset — Steps 1–3</span>
+
+      <a class="sqr" href="baby-steps.html#step-1">
+        <div class="sqr-badge"><span>1</span></div>
+        <div class="sqr-name">Macro Minimums</div>
+      </a>
+      <a class="sqr" href="baby-steps.html#step-2">
+        <div class="sqr-badge"><span>2</span></div>
+        <div class="sqr-name">Do an Activity</div>
+      </a>
+      <a class="sqr" href="baby-steps.html#step-3">
+        <div class="sqr-badge"><span>3</span></div>
+        <div class="sqr-name">Strength Mindset</div>
+      </a>
+
+      <span class="phase-pill establish">Inflection Point — Step 4</span>
+
+      <a class="sqr" href="baby-steps.html#step-4">
+        <div class="sqr-badge teal"><span>4</span></div>
+        <div class="sqr-name">Measure Progress</div>
+      </a>
+
+      <span class="phase-pill progress">Progress — Steps 5–6</span>
+
+      <a class="sqr" href="baby-steps.html#step-5">
+        <div class="sqr-badge amber"><span>5</span></div>
+        <div class="sqr-name">Gain Excess Muscle</div>
+      </a>
+      <a class="sqr" href="baby-steps.html#step-6">
+        <div class="sqr-badge amber"><span>6</span></div>
+        <div class="sqr-name">Become Metabolically Healthy</div>
+      </a>
+
+      <span class="phase-pill optimal">Optimal — Step 7</span>
+
+      <a class="sqr" href="baby-steps.html#step-7">
+        <div class="sqr-badge gold"><span>7</span></div>
+        <div class="sqr-name">Be Optimal</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHICH STEP ═══ -->
+<section id="which-step">
+  <h2 class="which-step-title">Find Out Which Baby Step <span class="mark">YOU'RE</span> On</h2>
+  <p class="which-step-sub">Answer one question and we'll tell you exactly where to start.</p>
+
+  <div class="quiz-box">
+    <p class="quiz-q">What best describes where you're at right now?</p>
+    <div class="quiz-options">
+      <button class="quiz-option" onclick="showResult(this, 1, 'Start with Step 1 — Macro Minimums.', 'You need to get your protein and fiber locked in before anything else. Hit 110g protein and 30g fiber per day for 2 weeks. Everything else builds on this.')">I eat pretty much whatever, no real plan</button>
+      <button class="quiz-option" onclick="showResult(this, 2, 'You\'re on Step 2 — Do an Activity.', 'Your nutrition is starting to improve. Now lock in a fun, social cardio activity at least 2x a week. Social pressure is a feature, not a workaround.')">I'm eating better but barely moving</button>
+      <button class="quiz-option" onclick="showResult(this, 3, 'You\'re between Step 2 and 3.', 'Keep your cardio activity going and add the gym 2x a week. Month one, you don\'t even have to work out — just go and leave. You\'re building identity.')">I do some cardio but avoid the gym</button>
+      <button class="quiz-option" onclick="showResult(this, 5, 'You\'re on Step 5 — Gain Excess Muscle.', 'Steps 1–3 are locked in — great. Now it\'s time to focus on resistance training to reach your ideal muscle mass. Muscles soak up carbs and protect you as you age.')">I exercise regularly but want to do more</button>
+      <button class="quiz-option" onclick="showResult(this, 6, 'You\'re on Step 6 — Become Metabolically Healthy.', 'You\'re strong and consistent. Now create a caloric imbalance until you hit your ideal body fat. Increase exercise or reduce carbs. Goal marker: glucose test.')">I lift and eat well but my body comp isn't where I want it</button>
+      <button class="quiz-option" onclick="showResult(this, 7, 'You\'re approaching Long Strong Elite — Step 7.', 'You\'re living the framework. Now optimize: gut health, micronutrients, sleep, stress, and HIIT. You are close to Long Strong Elite.')">I'm consistent and metabolically healthy</button>
+    </div>
+    <div class="quiz-result" id="quiz-result">
+      <div class="quiz-result-step" id="quiz-step-label"></div>
+      <div class="quiz-result-text" id="quiz-step-text"></div>
+      <a href="#steps" class="quiz-result-cta">See the full step →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ IDENTITY LADDER ═══ -->
+<section id="ladder">
+  <p class="ladder-label">Identity Progression</p>
+  <h2 class="ladder-title">Who Are You Becoming?</h2>
+
+  <div class="journey">
+    <div class="journey-track"></div>
+    <div class="journey-stops">
+
+      <div class="journey-stop">
+        <div class="journey-dot">1</div>
+        <div class="journey-tag">Steps 1, 2, 3</div>
+        <div class="journey-name">Building</div>
+        <p class="journey-desc">Protein, activity, strength mindset. 3 months of consistency unlocks the next level.</p>
+        <div class="journey-id">You're on the path</div>
+      </div>
+
+      <div class="journey-stop">
+        <div class="journey-dot">4</div>
+        <div class="journey-tag">Steps 4, 5, 6</div>
+        <div class="journey-name">Long Strong</div>
+        <p class="journey-desc">Unlocked after 3 consistent months on Steps 1–3. Measure, build muscle, get metabolically healthy.</p>
+        <div class="journey-id">You are a Long Strong</div>
+      </div>
+
+      <div class="journey-stop">
+        <div class="journey-dot">7</div>
+        <div class="journey-tag">Step 7</div>
+        <div class="journey-name">Long Strong Elite</div>
+        <p class="journey-desc">All pillars dialed in and sustained. You've opted out of the Sick Care System for good.</p>
+        <div class="journey-id">Long Strong Elite</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHO THIS IS FOR ═══ -->
+<section id="foryou">
+  <div class="foryou-inner">
+    <div class="foryou-grid">
+      <div class="foryou-text">
+        <h2 class="section-title">This Show Is Not for Fitness People.</h2>
+        <p class="section-sub">It's for people at a health inflection point — people who got the wake-up call and haven't decided to act yet. This podcast meets you at that exact moment.</p>
+        <div class="foryou-chips">
+          <span class="foryou-chip">Newly pre-diabetic</span>
+          <span class="foryou-chip">Parent fading from dementia</span>
+          <span class="foryou-chip">Postpartum weight</span>
+          <span class="foryou-chip">Living with PCOS</span>
+          <span class="foryou-chip">Can't keep up with your kids</span>
+          <span class="foryou-chip">Started and stopped a hundred times</span>
+        </div>
+      </div>
+      <div class="foryou-quote-col">
+        <div class="foryou-quote-label">The Antagonist</div>
+        <div class="foryou-quote-text">"The Sick Care System doesn't make money when you're healthy. So it was never designed to make you healthy."</div>
+        <div class="foryou-quote-cite">The Long Strongs is how you opt out. →</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ VILLAIN BAND ═══ -->
+<div id="villain">
+  <div class="villain-inner">
+    <p class="villain-text">
+      "Would you like to mentally leave your family without leaving physically? <strong>Prioritize yourself now</strong> so your kids don't have to take care of you when you have dementia or cancer. <strong>Be the parent they get to keep.</strong>"
+    </p>
+  </div>
+</div>
+
+
+<!-- ═══ MIRANDA ═══ -->
+<section id="miranda">
+  <div class="miranda-inner">
+    <div class="miranda-card">
+      <div class="miranda-photo-wrap">
+        <img src="miranda-photo.png" alt="Miranda Essig" class="miranda-photo"
+             onerror="this.closest('.miranda-photo-wrap').style.display='none';this.closest('.miranda-photo-wrap').nextElementSibling.style.display='flex';" />
+      </div>
+      <div class="miranda-photo-placeholder" style="display:none;">🏔️</div>
+      <div class="miranda-byline">
+        <div class="miranda-name">Miranda Essig</div>
+        <div class="miranda-title-tag">Founding Long Strong · Host</div>
+      </div>
+    </div>
+    <div class="miranda-text">
+      <h2 class="section-title" style="text-align:left;">I'm Not a Fitness Person.<br>I Was You.</h2>
+      <div class="miranda-pull">"I started and stopped a hundred times before it stuck. That's what earns the right to be certain on this show."</div>
+      <a href="miranda-story.html" style="display:inline-block;margin-top:1rem;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;text-decoration:none;color:var(--green-mid);">Read Miranda's Story →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section id="cta">
+  <p class="cta-kicker">The Long Strongs Podcast</p>
+  <h2 class="cta-title">Are You Going to Be<br>a Long Strong?</h2>
+  <p class="cta-sub">Because I'm looking at your situation and I already see it — I just need to know if you see it too.</p>
+  <a href="#steps" class="btn-primary">Start with Step 1</a>
+  <a href="#which-step" class="btn-outline">Find My Step</a>
+  <p class="cta-signoff">
+    "Show up for yourself now, so later you can show up for them.<br>
+    This is The Long Strongs. Stay long, stay strong."
+  </p>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <div class="footer-logo">🏔️ THE LONG STRONGS</div>
+  <nav>
+    <a href="#steps">The 7 Steps</a>
+    <a href="#which-step">Find My Step</a>
+    <a href="#ladder">Identity Ladder</a>
+    <a href="#miranda">Miranda's Story</a>
+    <a href="#phrases">The Liturgy</a>
+  </nav>
+  <p class="footer-disclaimer">
+    I am not a medical doctor or licensed nutritionist. Nothing on this site or podcast is medical or nutritional advice.
+    Please consult a qualified professional before making changes to your health routine.
+  </p>
+</footer>
+
+<script>
+  // Step expand/collapse
+  function toggleStep(row) {
+    const details = row.querySelector('.step-details');
+    const toggle = row.querySelector('.step-toggle');
+    const isOpen = details.classList.contains('open');
+    // Close all
+    document.querySelectorAll('.step-details').forEach(d => d.classList.remove('open'));
+    document.querySelectorAll('.step-toggle').forEach(t => { t.textContent = '+'; });
+    // Open this one if it was closed
+    if (!isOpen) {
+      details.classList.add('open');
+      toggle.textContent = '−';
+    }
+  }
+
+  // Quiz
+  function showResult(btn, step, label, text) {
+    // Deselect all
+    document.querySelectorAll('.quiz-option').forEach(b => b.classList.remove('selected'));
+    btn.classList.add('selected');
+    // Show result
+    document.getElementById('quiz-step-label').textContent = 'You\'re on Baby Step ' + step;
+    document.getElementById('quiz-step-text').textContent = label + ' ' + text;
+    const result = document.getElementById('quiz-result');
+    result.classList.add('visible');
+    result.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+</script>
+</body>
+</html>
