@@ -1,0 +1,59 @@
+---
+const sections = [
+  { label: 'Business of Food', href: '/business-of-food', cols: [
+    { h: 'Explore', items: ['Industry Hub','Software & tools','Physical automation'] },
+    { h: 'By segment', items: ['Restaurants','Quick-serve','Vending','Meal service'] },
+    { h: 'Deep dives', items: ['Vertical integration','Price vs production tradeoffs','Sub-industries'] },
+  ]},
+  { label: 'Health Focus', href: '/health-focus', cols: [
+    { h: 'The science', items: ['Nutrition science','Gut biome','Pesticides & food quality'] },
+    { h: 'Long strong', items: ['The Long Strong Ladder','Longevity','Training & movement'] },
+    { h: 'The show', items: ['The Long Strongs','Call the show','The 7 Baby Steps'] },
+  ]},
+  { label: 'Personal Kitchen', href: '/personal-kitchen', cols: [
+    { h: 'Philosophy', items: ['Cook when desired, not required','Cost vs nutrition'] },
+    { h: 'Systems', items: ['Meal-prep systems','The freeze dryer','Time & motion studies'] },
+    { h: 'Fuel', items: ['Macros & micros','Gut-friendly staples','Tools I use'] },
+  ]},
+];
+const panel = "invisible opacity-0 translate-y-1 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:translate-y-0 transition duration-150 absolute top-full z-30 bg-white border border-line rounded-xl p-5 shadow-sm";
+const item = "px-3 py-2 hover:underline underline-offset-[6px] decoration-2";
+---
+<header class="sticky top-0 z-20 border-b border-line bg-cream/90 backdrop-blur">
+  <div class="mx-auto max-w-6xl px-5 h-16 flex items-center">
+    <a href="/" class="flex items-center gap-2 font-bold text-ink text-lg">
+      <img src="/logo.png" width="36" height="36" alt="Miranda Essig" class="w-10 h-10 rounded-full object-cover ring-1 ring-line" />
+      Miranda Essig
+    </a>
+  </div>
+  <nav class="mx-auto max-w-6xl px-3 flex flex-wrap items-center gap-1 pb-2 text-[15px]">
+    {sections.map((s) => (
+      <div class="group relative">
+        <a href={s.href} class={`inline-block ${item}`}>{s.label}</a>
+        <div class={`${panel} left-0 w-[540px] max-w-[90vw]`}>
+          <div class="grid grid-cols-3 gap-6">
+            {s.cols.map((c) => (
+              <div>
+                <p class="text-xs uppercase tracking-wider text-muted mb-2">{c.h}</p>
+                {c.items.map((i) => (<a href={s.href} class="block py-1 text-sm hover:underline underline-offset-4">{i}</a>))}
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    ))}
+    <a href="/longevity-pillars" class={`inline-block ${item}`}>Longevity Pillars</a>
+
+    <span class="mx-2 h-5 w-px bg-line" aria-hidden="true"></span>
+
+    <div class="group relative">
+      <a href="/ask-me" class={`inline-block ${item}`}>Ask Me</a>
+      <div class={`${panel} right-0 w-[280px]`}>
+        <p class="text-xs uppercase tracking-wider text-muted mb-2">For your business</p>
+        <a href="/business-consulting" class="block py-1 text-sm hover:underline underline-offset-4">Business Consulting</a>
+        <p class="text-xs uppercase tracking-wider text-muted mt-4 mb-2">For your health</p>
+        <a href="/in-your-corner" class="block py-1 text-sm hover:underline underline-offset-4">In Your Corner — call the show</a>
+      </div>
+    </div>
+  </nav>
+</header>

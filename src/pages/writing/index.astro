@@ -1,0 +1,18 @@
+---
+import Base from '../../layouts/Base.astro';
+import { href } from '../../utils/href.js';
+import { posts } from '../../data/writing.js';
+---
+<Base title="Writing — Miranda Essig" description="Essays on the business of food and the science of food.">
+  <h1>Writing</h1>
+  <p class="lead">Two lanes: the business of food (models, financials, SEO, automation) and the science of food (nutrition, gut health, longevity).</p>
+  <ul class="post-list">
+    {posts.map((p) => (
+      <li>
+        <a href={href(`/writing/${p.slug}/`)}>{p.title}</a>
+        <span class="muted"> — {p.date}</span>
+        <p>{p.description}</p>
+      </li>
+    ))}
+  </ul>
+</Base>

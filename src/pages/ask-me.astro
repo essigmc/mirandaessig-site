@@ -1,0 +1,24 @@
+---
+import Base from '../layouts/Base.astro';
+const paths = [
+  { area: 'For your business', title: 'Business Consulting', text: 'Help for food and hospitality operators — business model, financials, SEO, tools, automation, and SOPs.', href: '/business-consulting', accent: '#2f6f4f', cta: 'See business help' },
+  { area: 'For your health', title: 'In Your Corner', text: 'Free encouragement to get long and strong. Call the show — no expertise claimed, just someone in your corner.', href: '/in-your-corner', accent: '#bd5a80', cta: 'Call the show' },
+];
+---
+<Base title="Ask Me — Miranda Essig" description="Two ways to reach Miranda: help for your food business, or free health encouragement and the show.">
+  <section class="mx-auto max-w-6xl px-5 py-14">
+    <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight">Ask me</h1>
+    <p class="mt-4 text-lg text-muted max-w-2xl">Two ways to reach me — one for your business, one for your health. Pick whichever fits.</p>
+    <div class="mt-10 grid md:grid-cols-2 gap-6">
+      {paths.map((p) => (
+        <a href={p.href} class="block rounded-2xl border border-line bg-white p-7 hover:shadow-sm transition">
+          <span class="block w-10 h-1.5 rounded mb-4" style={`background-color:${p.accent}`}></span>
+          <p class="text-xs uppercase tracking-wider text-muted">{p.area}</p>
+          <h2 class="text-2xl font-semibold mt-1">{p.title}</h2>
+          <p class="text-muted mt-2 leading-relaxed">{p.text}</p>
+          <span class="inline-block mt-5 font-medium" style={`color:${p.accent}`}>{p.cta} →</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>

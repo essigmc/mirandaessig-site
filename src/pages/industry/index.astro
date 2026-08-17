@@ -1,0 +1,54 @@
+---
+import Base from '../../layouts/Base.astro';
+import { directory } from '../../data/directory.js';
+
+const categories = [
+  { id: 'software', label: 'Software' },
+  { id: 'physical-tool', label: 'Physical Tools & Automation' },
+  { id: 'sop', label: 'SOPs & Playbooks' },
+  { id: 'player', label: 'Players & Companies' },
+];
+---
+<Base
+  title="Food-Service Industry Hub — Miranda Essig"
+  description="A growing map of the food-service industry: software, physical tools, SOPs, and players across restaurants, quick-serve, vending, and meal service."
+>
+  <h1>The Food-Service Industry Hub</h1>
+  <p class="lead">
+    A living map of the industry — the software, physical tools, SOPs, and companies across
+    restaurants, quick-serve, vending, and meal service. Built in the open as I research it.
+  </p>
+
+  {categories.map((cat) => {
+    const items = directory.filter((e) => e.category === cat.id);
+    return (
+      <section class="hub-cat">
+        <h2>{cat.label}</h2>
+        {items.length === 0 ? (
+          <p class="muted">Coming soon.</p>
+        ) : (
+          <div class="card-grid">
+            {items.map((e) => (
+              <article class="card">
+                <h3>
+                  {e.website ? (
+                    <a href={e.website} rel="nofollow noopener" target="_blank">{e.name}</a>
+                  ) : (
+                    e.name
+                  )}
+                </h3>
+                <p>{e.description}</p>
+                <p class="tags">{e.segment.map((s) => <span class="tag">{s}</span>)}</p>
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+    );
+  })}
+
+  <div class="note" style="margin-top:40px">
+    Seeded with a few entries to show the structure. Your Airtable food-automation database can be
+    imported here — each tool, company, and SOP becoming its own searchable, linkable page.
+  </div>
+</Base>

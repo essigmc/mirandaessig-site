@@ -1,0 +1,46 @@
+---
+import '../styles/global.css';
+import NavBar from '../components/NavBar.astro';
+
+const {
+  title,
+  description = 'Miranda Essig — the business, science, and soul of food.',
+  image,
+  keywords,
+} = Astro.props;
+const site = 'https://mirandaessig.com';
+const canonical = new URL(Astro.url.pathname, site).href;
+---
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <link rel="canonical" href={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    {image && <meta property="og:image" content={image} />}
+    <meta name="twitter:card" content="summary_large_image" />
+    {image && <meta name="twitter:image" content={image} />}
+    <link rel="icon" href="/logo.png" type="image/png" />
+    <slot name="head" />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <NavBar />
+    <main class="flex-1"><slot /></main>
+    <footer class="border-t border-line mt-16">
+      <div class="mx-auto max-w-6xl px-5 py-8 text-sm text-muted flex flex-wrap gap-x-6 gap-y-2 justify-between">
+        <p>© {new Date().getFullYear()} Miranda Essig</p>
+        <p>Ask Me Anything · Health &amp; Fitness</p>
+      </div>
+    </footer>
+  </body>
+</html>

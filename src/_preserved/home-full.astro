@@ -1,0 +1,33 @@
+---
+import Base from '../layouts/Base.astro';
+
+const cards = [
+  { label: 'Business of Food', href: '/business-of-food', title: 'How food gets to individuals', text: 'To understand the tools, technology and industries that touch our food and assist businesses in building better products and services.', accent: '#2f6f4f' },
+  { label: 'Personal Kitchen', href: '/personal-kitchen', title: 'Cooking when desired not required', text: 'To deliver nourishing food conveniently to individuals and families to fuel their lives and pursuits.', accent: '#c76b2e' },
+  { label: 'Health Focus', href: '/health-focus', title: 'Pursuing a healthy body & mind', text: 'To encourage individuals to reach their optimal health, connecting food and movement back to longevity through community reinforcement.', accent: '#bd5a80' },
+  { label: 'Longevity Pillars', href: '/longevity-pillars', title: 'Longevity Fuel', text: 'To philosophize on what makes for a fulfilled life and how to get there.', accent: '#6f7d57' },
+];
+---
+<Base title="Miranda Essig — the business, science, and soul of food">
+  <section class="mx-auto max-w-6xl px-5 py-12 md:py-16 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 class="text-4xl md:text-5xl font-extrabold leading-[1.1] tracking-tight">I care about food — from the industry that makes it to the plate that fuels you.</h1>
+      <p class="mt-6 text-lg text-muted max-w-prose">An MBA and product owner working on the business, the science, and the soul of food — helping businesses build better, families eat well, and people live long and strong.</p>
+      <a href="#sections" class="inline-block mt-8 rounded-full bg-biz text-white font-medium px-7 py-3 hover:bg-biz-ink transition">Explore My Work</a>
+    </div>
+    <div>
+      <img src="/hero-illustration.webp" width="904" height="848" alt="Miranda Essig surrounded by the business of food, health, her personal kitchen, and the longevity pillars" class="w-full rounded-2xl border border-line" />
+    </div>
+  </section>
+
+  <section id="sections" class="mx-auto max-w-6xl px-5 pb-20 grid sm:grid-cols-2 gap-5">
+    {cards.map((c) => (
+      <a href={c.href} class="block rounded-2xl border border-line bg-white p-6 hover:shadow-sm transition">
+        <span class="block w-10 h-1.5 rounded mb-4" style={`background-color:${c.accent}`}></span>
+        <p class="text-xs uppercase tracking-wider text-muted">{c.label}</p>
+        <h3 class="text-xl font-semibold mt-1">{c.title}</h3>
+        <p class="text-muted mt-2 text-[15px] leading-relaxed">{c.text}</p>
+      </a>
+    ))}
+  </section>
+</Base>
